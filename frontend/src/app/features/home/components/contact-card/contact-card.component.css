@@ -1,0 +1,112 @@
+.contact-card {
+  background: var(--bg-primary); /* Use your primary background */
+  border-radius: 18px;
+  padding: 30px;
+  box-shadow: var(--shadow-md); /* Use your defined shadow */
+  max-width: 500px; /* Adjust as needed */
+  margin: 0 auto; /* Center the card */
+  border: 1px solid var(--glass-border); /* Subtle border */
+}
+
+.contact-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid var(--border-color); /* Use your border color variable */
+  border-radius: 8px;
+  background-color: var(--bg-secondary); /* A slightly darker background for inputs */
+  color: var(--text-primary);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.2); /* Soft glow */
+}
+
+textarea {
+  resize: vertical; /* Allow vertical resizing */
+  min-height: 100px;
+}
+
+button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 15px 25px;
+  background: var(--gradient-primary); /* Use your primary gradient */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  box-shadow: var(--shadow-sm); /* Subtle button shadow */
+}
+
+button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+button[type="submit"]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.error-message {
+  color: var(--error-color); /* Define an error color variable */
+  font-size: 0.85rem;
+  margin-top: 5px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .contact-card {
+    padding: 25px;
+  }
+  .contact-title {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-card {
+    padding: 20px;
+  }
+  .contact-title {
+    font-size: 1.6rem;
+  }
+  button[type="submit"] {
+    font-size: 1rem;
+    padding: 12px 20px;
+  }
+}

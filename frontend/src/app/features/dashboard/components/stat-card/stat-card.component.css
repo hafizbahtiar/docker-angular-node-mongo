@@ -1,0 +1,89 @@
+/* src/app/features/dashboard/components/stat-card/stat-card.component.css */
+
+/* Styles for the main widget container */
+.dashboard-widget {
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: var(--glass-backdrop-filter);
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-widget:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Styles for the header section of the widget */
+.widget-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 15px;
+}
+
+/* Styles for the icon within the widget header */
+.widget-icon {
+  font-size: 1.8rem;
+  color: var(--color-accent-teal); /* Using your accent color */
+}
+
+/* Styles for the title within the widget header */
+.widget-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-color-heading);
+  margin: 0;
+}
+
+/* Styles specific to the 'stat' content area */
+.stat-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-grow: 1; /* Allows content to take available space if needed */
+}
+
+/* Styles for the main numeric value */
+.stat-value {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--color-accent-purple); /* Using your purple accent */
+  line-height: 1;
+  margin-bottom: 10px;
+  text-shadow: 0 0 5px rgba(var(--color-accent-purple-rgb), 0.3);
+}
+
+/* Styles for the change indicator (+5.2%, etc.) */
+.stat-change {
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Styles for the up/down arrow icon */
+.stat-change i {
+  font-size: 0.9rem;
+}
+
+/* Trend colors */
+.trend-up {
+  color: var(--status-success); /* Green for positive trend */
+}
+
+.trend-down {
+  color: var(--status-danger); /* Red for negative trend */
+}
+
+/* Responsive adjustment for stat value */
+@media (max-width: 991.98px) {
+  .stat-value {
+    font-size: 2.2rem;
+  }
+}

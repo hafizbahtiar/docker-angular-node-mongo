@@ -1,0 +1,33 @@
+<div class="project-card glass-card">
+  <div class="project-image">
+    <img
+      [src]="imageSrc"
+      [alt]="alt"
+      class="img-fluid"
+      loading="lazy"
+      style="object-fit: contain; width: 100%; height: 100%"
+    />
+    <div class="project-overlay">
+      <div class="project-links">
+        <a
+          *ngFor="let link of links"
+          [href]="link.href"
+          class="project-link"
+          [title]="link.title"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="{{ link.icon }}"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="project-content">
+    <div class="project-category">{{ category }}</div>
+    <h4 class="project-title">{{ title }}</h4>
+    <p class="project-description">{{ description }}</p>
+    <div class="project-tech">
+      <span class="tech-tag" *ngFor="let tech of techTags">{{ tech }}</span>
+    </div>
+  </div>
+</div>

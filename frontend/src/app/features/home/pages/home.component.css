@@ -1,0 +1,801 @@
+/*
+  Component-specific styles for home.component.html
+  Global CSS variables are defined in src/styles.css
+*/
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    var(--primary-dark) 100%
+  ); /* Use global vars */
+  min-height: 70vh;
+  height: auto;
+  display: flex;
+  align-items: center;
+  padding: 0 0.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg-shapes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  animation: float 6s ease-in-out infinite;
+}
+
+.shape-1 {
+  width: 200px;
+  height: 200px;
+  top: 10%;
+  right: 10%;
+  animation-delay: 0s;
+}
+
+.shape-2 {
+  width: 300px;
+  height: 300px;
+  bottom: 10%;
+  left: 10%;
+  animation-delay: 2s;
+}
+
+.shape-3 {
+  width: 150px;
+  height: 150px;
+  top: 50%;
+  right: 30%;
+  animation-delay: 4s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+}
+
+.hero-content {
+  color: white;
+  z-index: 2;
+  text-align: left;
+}
+
+.hero-badge .badge-modern {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  backdrop-filter: blur(5px);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.hero-title .text-gradient {
+  background: linear-gradient(
+    45deg,
+    var(--accent-color),
+    var(--secondary-color)
+  ); /* Use global vars */
+  -webkit-background-clip: text;
+  background-clip: text; /* Standard property for better compatibility */
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 500px;
+}
+
+.hero-actions .btn-modern {
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.hero-actions .btn-primary-modern {
+  background: var(--gradient-primary); /* Use global var */
+  color: white;
+  border: none;
+  box-shadow: var(--shadow-md); /* Use global var */
+}
+
+.hero-actions .btn-primary-modern:hover {
+  background: var(--gradient-accent); /* Use global var */
+  box-shadow: var(--shadow-lg); /* Use global var */
+  transform: translateY(-2px);
+}
+
+.hero-actions .btn-outline-modern {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+.hero-actions .btn-outline-modern:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: white;
+  transform: translateY(-2px);
+}
+
+.hero-stats {
+  color: white;
+  margin-top: 3rem;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--accent-color); /* Use global var */
+}
+
+.stat-label {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 0.5rem;
+}
+
+.hero-image-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  z-index: 1;
+}
+
+.hero-image-bg {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  backdrop-filter: blur(10px);
+  z-index: -1;
+  animation: pulse 4s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+}
+
+.hero-image {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid rgba(255, 255, 255, 0.5);
+  box-shadow: var(--shadow-xl); /* Use global var */
+}
+
+.floating-cards {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.floating-card {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  padding: 10px 15px;
+  color: white;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: var(--shadow-md); /* Use global var */
+  animation: floatCard 8s ease-in-out infinite;
+  pointer-events: auto;
+}
+
+.floating-card i {
+  font-size: 1.2rem;
+  color: var(--accent-color); /* Use global var */
+}
+
+.card-1 {
+  top: 5%;
+  left: 15%;
+  animation-delay: 0s;
+}
+
+.card-2 {
+  top: 25%;
+  right: 10%;
+  animation-delay: 1.5s;
+}
+
+.card-3 {
+  bottom: 20%;
+  left: 5%;
+  animation-delay: 3s;
+}
+.card-4 {
+  bottom: 5%;
+  right: 15%;
+  animation-delay: 4.5s;
+}
+.card-5 {
+  top: 100%;
+  left: 25%;
+  animation-delay: 6s;
+}
+.card-6 {
+  top: 60%;
+  right: 10%;
+  animation-delay: 7.5s;
+}
+.card-7 {
+  top: 45%;
+  left: 8%;
+  animation-delay: 7.5s;
+}
+
+@keyframes floatCard {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-5px) rotate(2deg);
+  }
+  50% {
+    transform: translateY(0) rotate(-2deg);
+  }
+  75% {
+    transform: translateY(5px) rotate(2deg);
+  }
+}
+
+/* About Section */
+.section-padding {
+  padding: 80px 0;
+}
+
+.bg-section {
+  background-color: var(--bg-secondary); /* Use global var */
+}
+
+.section-header {
+  margin-bottom: 3rem;
+}
+
+.section-badge {
+  display: inline-block;
+  background: var(--primary-color); /* Use global var */
+  color: white;
+  padding: 6px 15px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary); /* Use global var */
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary); /* Use global var */
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-content p {
+  color: var(--text-secondary); /* Use global var */
+}
+
+.about-content .lead {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--text-primary); /* Use global var */
+}
+
+.about-highlights {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  margin-top: 2rem;
+}
+
+.highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+  color: var(--text-primary); /* Use global var */
+}
+
+.highlight-item i {
+  font-size: 1.3rem;
+  color: var(--primary-color); /* Use global var */
+}
+
+/* About Section - Skills Visual */
+.skills-visual {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 25px;
+  max-width: 700px;
+  width: 100%;
+  justify-content: center;
+}
+
+.skill-circle-container {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  overflow: hidden; /* CRUCIAL: Clips the rectangular liquid into a circle */
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1), var(--shadow-md);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+  margin: 0 auto;
+}
+
+.skill-circle-container:hover {
+  transform: translateY(-8px);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1), var(--shadow-lg);
+}
+
+.skill-liquid-fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  /* Start height at 0, this will be animated */
+  height: 0%;
+  background: var(--gradient-primary);
+
+  /* Chained animations: initial fill, then infinite wave */
+  /* The 'forwards' on the first animation ensures it holds its end state */
+  /* The 'calc()' for the second animation's delay ensures it starts after the first completes */
+  animation: fill-liquid 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55)
+      var(--item-delay, 0s) forwards,
+    liquid-wave 2s ease-in-out calc(1.5s + var(--item-delay, 0s)) infinite
+      alternate;
+}
+
+/* Keyframes for initial fill (from 0% to target height) */
+@keyframes fill-liquid {
+  from {
+    height: 0%;
+    transform: translateY(0); /* Ensure starting at 0 */
+  }
+  to {
+    /* The final height of the liquid. Add a buffer (e.g., 10px) to ensure bottom coverage. */
+    height: calc(var(--fill-height) + 10px);
+    /* Push the *entire liquid block* downwards by the buffer amount.
+       This makes the visible top of the liquid match var(--fill-height)
+       while its bottom is now 10px below the container's bottom edge (hidden by overflow). */
+    transform: translateY(10px);
+  }
+}
+
+/* Keyframes for infinite liquid wave (subtle vertical movement) */
+@keyframes liquid-wave {
+  0% {
+    /* Start from the 'buffered' position set by fill-liquid's 'to' state */
+    transform: translateY(10px);
+  }
+  50% {
+    /* Move up slightly, reducing the buffer at the bottom.
+       This creates the "wave" without exposing the container's bottom. */
+    transform: translateY(0px);
+  }
+  100% {
+    /* Return to the buffered position */
+    transform: translateY(10px);
+  }
+}
+
+.skill-overlay-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+
+.skill-name-in-circle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 5px;
+  text-align: center;
+  line-height: 1.2;
+  padding: 0 5px;
+}
+
+.skill-percent {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  line-height: 1;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991.98px) {
+  /* Hide the skills visual section on tablets and smaller screens */
+  .skills-visual {
+    display: none;
+  }
+}
+
+/* Initial animation on load (optional, requires a bit of JS/TS or specific CSS trick) */
+/* For Angular, you'd typically trigger this in ngOnInit or via Intersection Observer */
+/* You can set initial width to 0 in HTML and let Angular bind the actual width */
+/* or use an animation based on a class toggled after view init */
+
+/* Services Section */
+/* Note: Service card styles are ideally in service-card.component.css */
+/* These remain here for completeness if you only have one main CSS file */
+.service-card {
+  background: var(--glass-bg); /* Use global var */
+  border: 1px solid var(--glass-border); /* Use global var */
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: var(--shadow-md); /* Use global var */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg); /* Use global var */
+}
+
+.service-icon {
+  font-size: 3rem;
+  color: var(--primary-color); /* Use global var */
+  margin-bottom: 20px;
+}
+
+.service-title {
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: var(--text-primary); /* Use global var */
+  margin-bottom: 15px;
+}
+
+.service-description {
+  color: var(--text-secondary); /* Use global var */
+  flex-grow: 1; /* Makes sure description takes available space */
+}
+
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.tech-tag {
+  background-color: rgba(
+    99,
+    102,
+    241,
+    0.1
+  ); /* Primary color with transparency */
+  color: var(--primary-color); /* Use global var */
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 500;
+}
+.tech-tag i {
+  font-size: 0.9em;
+}
+
+/* Projects Section */
+/* Note: Project card styles are ideally in project-card.component.css */
+/* These remain here for completeness if you only have one main CSS file */
+.project-card {
+  background: var(--glass-bg); /* Use global var */
+  border: 1px solid var(--glass-border); /* Use global var */
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: var(--shadow-md); /* Use global var */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg); /* Use global var */
+}
+
+.project-image {
+  position: relative;
+  width: 100%;
+  height: 250px; /* Fixed height for consistency */
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.05);
+}
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+.project-links {
+  display: flex;
+  gap: 15px;
+}
+
+.project-link {
+  color: white;
+  font-size: 1.8rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
+}
+
+.project-link:hover {
+  color: var(--accent-color); /* Use global var */
+  transform: translateY(-3px);
+}
+
+.project-content {
+  padding: 25px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-category {
+  font-size: 0.85rem;
+  color: var(--text-secondary); /* Use global var */
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.project-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary); /* Use global var */
+  margin-bottom: 15px;
+}
+
+.project-description {
+  font-size: 0.95rem;
+  color: var(--text-secondary); /* Use global var */
+  margin-bottom: 20px;
+  /* Styles for line clamping (already present in HTML, moved here) */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3; /* Standard property */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto; /* Pushes tech tags to bottom */
+}
+
+/* Social links below form */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-link {
+  color: var(--text-secondary); /* Use global var */
+  font-size: 2rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-link:hover {
+  color: var(--primary-color); /* Use global var */
+  transform: translateY(-5px);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991.98px) {
+  /* Large devices (desktops, 992px and up) */
+  .hero-section {
+    min-height: auto;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    text-align: center;
+  }
+  .hero-content {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .hero-image-container {
+    margin-bottom: 3rem;
+  }
+  .hero-actions {
+    justify-content: center;
+  }
+  .hero-image {
+    width: 250px;
+    height: 250px;
+  }
+  .hero-image-bg {
+    width: 300px;
+    height: 300px;
+  }
+  .floating-cards {
+    display: none; /* Hide floating cards on smaller screens */
+  }
+  .about-highlights {
+    grid-template-columns: 1fr 1fr; /* Two columns on tablets */
+  }
+  .skills-visual {
+    margin-top: 3rem;
+  }
+  .project-image {
+    height: 200px; /* Slightly reduce height on tablets */
+  }
+}
+
+@media (max-width: 767.98px) {
+  /* Medium devices (tablets, 768px and up) */
+  .hero-title {
+    font-size: 2.8rem;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  .stat-number {
+    font-size: 2rem;
+  }
+  .section-title {
+    font-size: 2rem;
+  }
+  .section-subtitle {
+    font-size: 0.95rem;
+  }
+  .about-highlights {
+    grid-template-columns: 1fr; /* Single column on mobile */
+  }
+}
+
+@media (max-width: 575.98px) {
+  /* Small devices (landscape phones, 576px and up) */
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+  .hero-image {
+    width: 200px;
+    height: 200px;
+  }
+  .hero-image-bg {
+    width: 250px;
+    height: 250px;
+  }
+  .section-padding {
+    padding: 60px 0;
+  }
+  .service-card,
+  .project-card {
+    padding: 20px;
+  }
+}

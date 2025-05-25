@@ -1,0 +1,255 @@
+<!-- <div class="dashboard-container">
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2 class="dashboard-logo">Hafiz.dev</h2>
+    </div>
+    <nav class="sidebar-nav">
+      <ul>
+        <li>
+          <a routerLink="/dashboard" class="active"
+            ><i class="fas fa-home"></i> Dashboard</a
+          >
+        </li>
+        <li>
+          <a routerLink="/projects"
+            ><i class="fas fa-folder-open"></i> Projects</a
+          >
+        </li>
+        <li>
+          <a routerLink="/clients"><i class="fas fa-users"></i> Clients</a>
+        </li>
+        <li>
+          <a routerLink="/analytics"
+            ><i class="fas fa-chart-bar"></i> Analytics</a
+          >
+        </li>
+        <li>
+          <a routerLink="/settings"><i class="fas fa-cog"></i> Settings</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="sidebar-footer">
+      <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <header class="dashboard-header glass-card">
+      <div class="header-left">
+        <h1 class="header-title">Welcome back, {{ userName }}!</h1>
+        <p class="header-date">{{ currentDate }}</p>
+      </div>
+      <div class="header-right">
+        <div class="user-info">
+          <span class="user-role">{{ userRole }}</span>
+          <span class="user-name">{{ userName }}</span>
+          <img
+            src="https://media.licdn.com/dms/image/v2/D5603AQE9pMt6OmjgTA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1722946421123?e=1753315200&v=beta&t=JQMXwUIU8DEA0PP4z6oK_J6wS996QoIAI5F_jCV-XUU"
+            alt="User Avatar"
+            class="user-avatar"
+          />
+        </div>
+      </div>
+    </header>
+
+    <section class="dashboard-grid">
+      <div class="dashboard-widget glass-card" *ngFor="let widget of widgets">
+        <div class="widget-header">
+          <i class="{{ widget.icon }} widget-icon"></i>
+          <h3 class="widget-title">{{ widget.title }}</h3>
+        </div>
+
+        <ng-container [ngSwitch]="widget.type">
+          <app-stat-card></app-stat-card>
+
+          <div *ngSwitchCase="'list'" class="widget-content list-content">
+            <ul class="activity-list">
+              <li *ngFor="let item of widget.data">
+                <span class="activity-text">{{ item.text }}</span>
+                <span class="activity-time">{{ item.time }}</span>
+              </li>
+            </ul>
+          </div>
+
+          <div *ngSwitchCase="'chart'" class="widget-content chart-content">
+            <p>Chart placeholder for {{ widget.title }}</p>
+            <div class="chart-mockup"></div>
+          </div>
+
+          <div
+            *ngSwitchCase="'quick-links'"
+            class="widget-content quick-links-content"
+          >
+            <div class="quick-links-grid">
+              <a
+                *ngFor="let link of widget.data"
+                [href]="link.url"
+                target="_blank"
+                rel="noopener"
+                class="quick-link"
+              >
+                {{ link.text }}
+              </a>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </section>
+  </main>
+</div>
+ -->
+
+<div class="dashboard-container">
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2 class="dashboard-logo">Hafiz.dev</h2>
+    </div>
+    <nav class="sidebar-nav">
+      <ul>
+        <li>
+          <a routerLink="/dashboard" class="active"
+            ><i class="fas fa-home"></i> Dashboard</a
+          >
+        </li>
+        <li>
+          <a routerLink="/projects"
+            ><i class="fas fa-folder-open"></i> Projects</a
+          >
+        </li>
+        <li>
+          <a routerLink="/clients"><i class="fas fa-users"></i> Clients</a>
+        </li>
+        <li>
+          <a routerLink="/analytics"
+            ><i class="fas fa-chart-bar"></i> Analytics</a
+          >
+        </li>
+        <li>
+          <a routerLink="/settings"><i class="fas fa-cog"></i> Settings</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="sidebar-footer">
+      <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <header class="dashboard-header glass-card">
+      <div class="header-left">
+        <h1 class="header-title">Welcome back, {{ userName }}!</h1>
+        <p class="header-date">{{ currentDate }}</p>
+      </div>
+      <div class="header-right">
+        <div class="user-info">
+          <span class="user-role">{{ userRole }}</span>
+          <span class="user-name">{{ userName }}</span>
+          <img
+            src="https://media.licdn.com/dms/image/v2/D5603AQE9pMt6OmjgTA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1722946421123?e=1753315200&v=beta&t=JQMXwUIU8DEA0PP4z6oK_J6wS996QoIAI5F_jCV-XUU"
+            alt="User Avatar"
+            class="user-avatar"
+          />
+        </div>
+      </div>
+    </header>
+
+    <div *ngIf="isLoading" class="loading-message">
+      <i class="fas fa-spinner fa-spin"></i> Loading dashboard...
+    </div>
+
+    <div *ngIf="errorMessage" class="error-message">
+      <i class="fas fa-exclamation-triangle"></i> {{ errorMessage }}
+      <button (click)="refreshDashboard()">Retry</button>
+    </div>
+
+    <section class="dashboard-grid" *ngIf="!isLoading && !errorMessage">
+      <ng-container *ngFor="let widget of widgets$ | async">
+        <ng-container [ngSwitch]="widget.type">
+          <ng-container *ngSwitchCase="'stat'">
+            <app-stat-card
+              *ngIf="widget.data as statData"
+              [icon]="widget.icon"
+              [title]="widget.title"
+              [value]="statData.value"
+              [change]="statData.change"
+              [trend]="statData.trend"
+            >
+            </app-stat-card>
+          </ng-container>
+
+          <div *ngSwitchCase="'list'" class="dashboard-widget glass-card">
+            <div class="widget-header">
+              <i class="{{ widget.icon }} widget-icon"></i>
+              <h3 class="widget-title">{{ widget.title }}</h3>
+            </div>
+            <ul class="activity-list">
+              <li *ngFor="let item of widget.data">
+                <span class="activity-text">{{ item.text }}</span>
+                <span
+                  class="activity-status"
+                  [class]="'status-' + item.status"
+                  *ngIf="item.status"
+                  >{{ item.status }}</span
+                >
+                <span class="activity-time">{{ item.time }}</span>
+              </li>
+            </ul>
+          </div>
+
+          <div *ngSwitchCase="'chart'" class="dashboard-widget glass-card">
+            <div class="widget-header">
+              <i class="{{ widget.icon }} widget-icon"></i>
+              <h3 class="widget-title">{{ widget.title }}</h3>
+            </div>
+            <div class="widget-content chart-content">
+              <p>
+                Chart for {{ widget.title }} goes here (e.g., using Chart.js or
+                D3.js)
+              </p>
+              <div class="chart-mockup">
+                <p>{{ widget.data.datasetLabel }}</p>
+                <p>Data: {{ widget.data.values.join(", ") }}</p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            *ngSwitchCase="'quick-links'"
+            class="dashboard-widget glass-card"
+          >
+            <div class="widget-header">
+              <i class="{{ widget.icon }} widget-icon"></i>
+              <h3 class="widget-title">{{ widget.title }}</h3>
+            </div>
+            <div class="widget-content quick-links-content">
+              <div class="quick-links-grid">
+                <a
+                  *ngFor="let link of widget.data"
+                  [href]="link.url"
+                  target="_blank"
+                  rel="noopener"
+                  class="quick-link"
+                >
+                  {{ link.text }}
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div *ngSwitchDefault class="dashboard-widget glass-card">
+            <div class="widget-header">
+              <i
+                class="fas fa-exclamation-circle widget-icon"
+                style="color: orange"
+              ></i>
+              <h3 class="widget-title">Unknown Widget Type</h3>
+            </div>
+            <div class="widget-content">
+              <p>Widget type '{{ widget.type }}' is not recognized.</p>
+            </div>
+          </div>
+        </ng-container>
+      </ng-container>
+    </section>
+  </main>
+</div>

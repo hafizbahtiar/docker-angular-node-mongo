@@ -1,0 +1,77 @@
+/* service-card.component.css */
+.service-card {
+  background: var(--glass-bg); /* Use global var */
+  border: 1px solid var(--glass-border); /* Use global var */
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: var(--shadow-md); /* Use global var */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg); /* Use global var */
+}
+
+.service-icon {
+  font-size: 3rem;
+  color: var(--primary-color); /* Use global var */
+  margin-bottom: 20px;
+}
+
+.service-title {
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: var(--text-primary); /* Use global var */
+  margin-bottom: 15px;
+}
+
+.service-description {
+  color: var(--text-secondary); /* Use global var */
+  flex-grow: 1;
+  /* Add any specific description styles here */
+}
+
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.tech-tag {
+  background-color: rgba(99, 102, 241, 0.1); /* Primary color with transparency */
+  color: var(--primary-color); /* Use global var */
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 500;
+}
+.tech-tag i {
+  font-size: 0.9em;
+}
+
+.h-100 { /* Bootstrap utility class */
+  height: 100%;
+}
+
+/* Responsive adjustments specific to service card if needed */
+@media (max-width: 575.98px) {
+  .service-card {
+    padding: 20px;
+  }
+  .service-icon {
+    font-size: 2.5rem;
+  }
+  .service-title {
+    font-size: 1.4rem;
+  }
+}

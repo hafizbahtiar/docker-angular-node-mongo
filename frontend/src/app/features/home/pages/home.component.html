@@ -1,0 +1,262 @@
+<div class="hero-section position-relative overflow-hidden">
+  <div class="hero-bg-shapes">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+  </div>
+
+  <div class="container position-relative py-5">
+    <div class="row align-items-center min-vh-70">
+      <div class="col-lg-6 order-2 order-lg-1">
+        <div class="hero-content">
+          <div class="hero-badge mb-4">
+            <span class="badge-modern">👋 Available for work</span>
+          </div>
+          <h1 class="hero-title mb-4">
+            Hi, I'm <span class="text-gradient">Hafiz</span><br />
+            Full Stack Developer
+          </h1>
+          <p class="hero-subtitle mb-5">
+            I create exceptional digital experiences through clean code and
+            innovative solutions. Specializing in Node.js, Flutter, and modern
+            web technologies.
+          </p>
+          <div class="hero-actions d-flex gap-3 flex-wrap">
+            <a href="#projects" class="btn-modern btn-primary-modern">
+              <span>View My Work</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="#contact" class="btn-modern btn-outline-modern">
+              <span>Let's Talk</span>
+              <i class="fas fa-message"></i>
+            </a>
+          </div>
+          <div class="hero-stats mt-5">
+            <div class="row">
+              <div class="col-4">
+                <div class="stat-item">
+                  <h3 class="stat-number">50+</h3>
+                  <p class="stat-label">Projects</p>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="stat-item">
+                  <h3 class="stat-number">3+</h3>
+                  <p class="stat-label">Years Exp</p>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="stat-item">
+                  <h3 class="stat-number">25+</h3>
+                  <p class="stat-label">Happy Clients</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 order-1 order-lg-2">
+        <div class="hero-image-container">
+          <div class="hero-image-bg"></div>
+          <img
+            src="https://media.licdn.com/dms/image/v2/D5603AQE9pMt6OmjgTA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1722946421123?e=1753315200&v=beta&t=JQMXwUIU8DEA0PP4z6oK_J6wS996QoIAI5F_jCV-XUU"
+            alt="Hafiz Profile"
+            class="hero-image"
+            loading="lazy"
+          />
+          <div class="floating-cards">
+            <div class="floating-card card-1">
+              <i class="fab fa-node-js"></i>
+              <span>Node.js</span>
+            </div>
+            <div class="floating-card card-2">
+              <i class="fa-brands fa-flutter"></i>
+              <span>Flutter</span>
+            </div>
+            <div class="floating-card card-3">
+              <i class="fab fa-envira"></i>
+              <span>MongoDB</span>
+            </div>
+            <div class="floating-card card-4">
+              <i class="fas fa-database"></i>
+              <span>PostgreSQL</span>
+            </div>
+            <div class="floating-card card-5">
+              <i class="fab fa-react"></i>
+              <span>React Native</span>
+            </div>
+            <div class="floating-card card-6">
+              <i class="fab fa-laravel"></i>
+              <span>Laravel</span>
+            </div>
+            <div class="floating-card card-7">
+              <i class="fab fa-docker"></i>
+              <span>Docker</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="about" class="section-padding bg-section">
+  <div class="container">
+    <div class="section-header text-center mb-5">
+      <span class="section-badge">About Me</span>
+      <h2 class="section-title">Crafting Digital Solutions</h2>
+      <p class="section-subtitle">
+        Passionate about creating seamless user experiences and robust backend
+        systems
+      </p>
+    </div>
+
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <div class="about-content">
+          <p class="lead mb-4">
+            I'm a full-stack developer specializing in building scalable web and
+            mobile applications using Laravel, Node.js, Flutter, and modern
+            JavaScript frameworks. My experience includes delivering robust
+            solutions for government, enterprise, and fintech clients.
+          </p>
+          <p class="mb-4">
+            I've led and contributed to projects such as ePerolehan DBKL
+            (digital procurement), CIT Receipt Book (secure cash-in-transit
+            management), and Wetrack System (secure code delivery for ATM
+            operations). My focus is on clean architecture, API development, and
+            seamless user experiences.
+          </p>
+          <div class="about-highlights">
+            <div class="highlight-item">
+              <i class="fas fa-code text-primary"></i>
+              <span>Clean, maintainable code</span>
+            </div>
+            <div class="highlight-item">
+              <i class="fas fa-network-wired text-primary"></i>
+              <span>API & backend expertise</span>
+            </div>
+            <div class="highlight-item">
+              <i class="fas fa-mobile-alt text-primary"></i>
+              <span>Cross-platform mobile apps</span>
+            </div>
+            <div class="highlight-item">
+              <i class="fas fa-rocket text-primary"></i>
+              <span>Performance & security</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="skills-visual">
+          <div class="skill-grid">
+            <div
+              class="skill-circle-container"
+              *ngFor="let skill of skillsData; let i = index"
+              [style.--fill-height]="skill.level + '%'"
+              [style.--item-delay]="i * 0.1 + 's'"
+            >
+              <div class="skill-liquid-fill"></div>
+              <div class="skill-overlay-content">
+                <span class="skill-name-in-circle">{{ skill.name }}</span>
+                <span class="skill-percent">{{ skill.level }}%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="section-padding">
+  <div class="container">
+    <div class="section-header text-center mb-5">
+      <span class="section-badge">Services</span>
+      <h2 class="section-title">What I Do Best</h2>
+      <p class="section-subtitle">
+        Comprehensive development solutions to bring your vision to life.
+      </p>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+      <div class="col-lg-4 col-md-6" *ngFor="let service of services">
+        <app-service-card
+          [icon]="service.icon"
+          [title]="service.title"
+          [description]="service.description"
+          [techList]="service.techList"
+        ></app-service-card>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="section-padding bg-section">
+  <div class="container">
+    <div class="section-header text-center mb-5">
+      <span class="section-badge">Portfolio</span>
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-subtitle">
+        A showcase of my recent work and achievements
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-6" *ngFor="let project of projects">
+        <app-project-card
+          [imageSrc]="project.imageSrc"
+          [alt]="project.alt"
+          [category]="project.category"
+          [title]="project.title"
+          [description]="project.description"
+          [techTags]="project.techTags"
+          [links]="project.links"
+        ></app-project-card>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section-padding">
+  <div class="container">
+    <div class="section-header text-center mb-5">
+      <span class="section-badge">Contact</span>
+      <h2 class="section-title">Let's Work Together</h2>
+      <p class="section-subtitle">
+        Ready to bring your ideas to life? Send me a message!
+      </p>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <app-contact-card></app-contact-card>
+        <div class="text-center mt-5">
+          <p class="text-secondary mb-3">Or connect with me on social media:</p>
+          <div class="social-links">
+            <a
+              href="https://my.linkedin.com/in/hafizbahtiar"
+              class="social-link"
+              target="_blank"
+              rel="noopener"
+              aria-label="LinkedIn"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a
+              href="https://github.com/hafizbahtiar"
+              class="social-link"
+              target="_blank"
+              rel="noopener"
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

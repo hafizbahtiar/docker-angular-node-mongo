@@ -1,0 +1,17 @@
+<div class="service-card glass-card h-100">
+  <div class="service-icon">
+    <i class="{{ icon }}"></i>
+  </div>
+  <h4 class="service-title">{{ title }}</h4>
+  <p class="service-description" [innerHTML]="description"></p>
+  <div class="service-details mt-4">
+    <h6 class="text-secondary">Key Expertise:</h6>
+    <ul class="list-unstyled tech-list">
+      <li *ngFor="let tech of techList">
+        <span class="tech-tag"
+          ><i class="{{ tech.icon }}"></i> {{ tech.name }}</span
+        >
+      </li>
+    </ul>
+  </div>
+</div>

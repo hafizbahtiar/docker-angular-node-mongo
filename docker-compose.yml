@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+    myappnode:
+        build: ./backend
+        container_name: myappnode
+        ports:
+            - '7001:7001'
+        volumes:
+            - ./backend:/usr/src/app
+        environment:
+            - NODE_ENV=production
+            - MONGO_URI=mongodb://myappangular:myappangularPassword@myappmongo:27018/myappangular?authSource=myappangular
+        depends_on:
+            myappmongo:
+                condition: service_healthy
+
+    myappangular:
+        build: ./frontend
+        container_name: myappangular
+        ports:
+            - '4200:4200'
+        volumes:
+            - ./frontend:/usr/src/app
+            - /usr/src/app/node_modules
+        depends_on:
+            - myappnode
+
+    myappmongo:
+        image: mongo
+        container_name: myappmongo
+        ports:
+            - '27018:27018'
+        volumes:
+            - mongo-data:/data/db
+        # command: mongod --port 27018 --quiet --logpath /dev/null
+        command: mongod --port 27018 --auth --quiet --logpath /dev/null
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: myappangular
+            MONGO_INITDB_ROOT_PASSWORD: myappangularPassword
+        healthcheck:
+            test: ['CMD', 'mongosh', '--port', '27018', '--eval', 'db.runCommand({ ping: 1 })']
+            interval: 10s
+            timeout: 5s
+            retries: 5
+
+volumes:
+    mongo-data:
