@@ -10,7 +10,6 @@ services:
             - ./backend:/usr/src/app
         environment:
             - NODE_ENV=production
-            - MONGO_URI=mongodb://myappangular:myappangularPassword@myappmongo:27018/myappangular?authSource=myappangular
         depends_on:
             myappmongo:
                 condition: service_healthy
@@ -33,11 +32,7 @@ services:
             - '27018:27018'
         volumes:
             - mongo-data:/data/db
-        # command: mongod --port 27018 --quiet --logpath /dev/null
         command: mongod --port 27018 --auth --quiet --logpath /dev/null
-        environment:
-            MONGO_INITDB_ROOT_USERNAME: myappangular
-            MONGO_INITDB_ROOT_PASSWORD: myappangularPassword
         healthcheck:
             test: ['CMD', 'mongosh', '--port', '27018', '--eval', 'db.runCommand({ ping: 1 })']
             interval: 10s
